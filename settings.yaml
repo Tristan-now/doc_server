@@ -1,0 +1,26 @@
+system:
+  ip: 127.0.0.1
+  port: 8082
+  env: dev
+mysql:
+  host: 127.0.0.1
+  #host: 10.11.36.138
+  #pc host
+  #host: 10.9.130.150
+  port: 3306
+  config: charset=utf8mb4&parseTime=True&loc=Local
+  db: gvd_db
+  username: remoteUser
+  password: 12345678
+  logLevel: error
+redis:
+  ip: 127.0.0.1
+  #pc ip
+  #ip: 10.9.130.50
+  port: 6379
+  password: "22331"
+  poolSize: 100
+jwt:
+  expires: 8
+  issuer: FightClub
+  secret: uis&*jbb55dHRhf5
