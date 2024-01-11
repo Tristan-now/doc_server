@@ -29,7 +29,7 @@ func Routers() *gin.Engine {
 	router.Static("/uploads", "uploads")
 
 	routerGroup.UserRouter()
-	//routerGroup.ImageRouter()
+	routerGroup.ImageRouter()
 	//routerGroup.LogRouter()
 	//routerGroup.SiteRouter()
 	//routerGroup.RoleRouter()

@@ -24,3 +24,5 @@ jwt:
   expires: 8
   issuer: FightClub
   secret: uis&*jbb55dHRhf5
+
+##swag 127.0.0.1:8082/swagger/index.html

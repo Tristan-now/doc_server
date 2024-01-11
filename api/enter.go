@@ -8,13 +8,14 @@ import (
 	//"gvd_server/api/role_api"
 	//"gvd_server/api/role_doc_api"
 	//"gvd_server/api/site_api"
+	"gvd_server/api/image_api"
 	"gvd_server/api/user_api"
 	//"gvd_server/api/user_center_api"
 )
 
 type Api struct {
-	UserApi user_api.UserApi
-	//ImageApi      image_api.ImageApi
+	UserApi  user_api.UserApi
+	ImageApi image_api.ImageApi
 	//LogApi        log_api.LogApi
 	//SiteApi       site_api.SiteApi
 	//RoleApi       role_api.RoleApi

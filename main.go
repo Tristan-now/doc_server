@@ -2,7 +2,7 @@ package main
 
 import (
 	"gvd_server/core"
-	//_ "gvd_server/docs"
+	_ "gvd_server/docs"
 	"gvd_server/flags"
 	"gvd_server/global"
 	"gvd_server/routers"
