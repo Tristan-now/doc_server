@@ -2,7 +2,6 @@ package list
 
 import (
 	"fmt"
-	"gorm.io/gorm"
 	"gvd_server/global"
 	"gvd_server/models"
 )
@@ -11,8 +10,8 @@ type Option struct {
 	models.Pagination          // 分页查询
 	Likes             []string // 需要模糊匹配的字段列表
 	Debug             bool     // 是否打印sql
-	Where             *gorm.DB // 额外的查询
-	Preload           []string // 预加载的字段列表
+	//Where             *gorm.DB // 额外的查询
+	Preload []string // 预加载的字段列表
 }
 
 // QueryList 分页列表查询
@@ -33,9 +32,9 @@ func QueryList[T any](model T, option Option) (list []T, count int, err error) {
 		option.Limit = 10
 	}
 	// 如果有高级查询就加上
-	if option.Where != nil {
-		query.Where(option.Where)
-	}
+	//if option.Where != nil {
+	//	query.Where(option.Where)
+	//}
 
 	// 模糊匹配
 	if option.Key != "" {

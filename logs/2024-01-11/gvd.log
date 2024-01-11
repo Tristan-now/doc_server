@@ -26,3 +26,26 @@
 [2024-01-11 20:44:48] [31m[error][0m image_upload.go:65 gvd_server/api/image_api.ImageApi.ImageUploadView uploads/用户_9/purple1.jpg 文件保存错误 record not found
 [2024-01-11 20:44:49] [31m[error][0m image_upload.go:65 gvd_server/api/image_api.ImageApi.ImageUploadView uploads/用户_9/purple1.jpg 文件保存错误 record not found
 [2024-01-11 20:44:49] [31m[error][0m image_upload.go:65 gvd_server/api/image_api.ImageApi.ImageUploadView uploads/用户_9/purple1.jpg 文件保存错误 record not found
+[2024-01-11 21:25:48] [33m[warning][0m user_login.go:45 gvd_server/api/user_api.UserApi.UserLoginView 用户密码错误admin123
+[2024-01-11 21:26:18] [33m[warning][0m user_login.go:45 gvd_server/api/user_api.UserApi.UserLoginView 用户密码错误admin123
+[2024-01-11 21:27:31] [33m[warning][0m user_login.go:45 gvd_server/api/user_api.UserApi.UserLoginView 用户密码错误admin123
+[2024-01-11 21:27:32] [33m[warning][0m user_login.go:45 gvd_server/api/user_api.UserApi.UserLoginView 用户密码错误admin123
+[2024-01-11 21:27:32] [33m[warning][0m user_login.go:45 gvd_server/api/user_api.UserApi.UserLoginView 用户密码错误admin123
+[2024-01-11 21:27:51] [33m[warning][0m user_login.go:45 gvd_server/api/user_api.UserApi.UserLoginView 用户密码错误admin123
+[2024-01-11 21:27:51] [33m[warning][0m user_login.go:45 gvd_server/api/user_api.UserApi.UserLoginView 用户密码错误admin123
+[2024-01-11 21:27:52] [33m[warning][0m user_login.go:45 gvd_server/api/user_api.UserApi.UserLoginView 用户密码错误admin123
+[2024-01-11 21:27:53] [33m[warning][0m user_login.go:45 gvd_server/api/user_api.UserApi.UserLoginView 用户密码错误admin123
+[2024-01-11 21:27:54] [33m[warning][0m user_login.go:45 gvd_server/api/user_api.UserApi.UserLoginView 用户密码错误admin123
+[2024-01-11 21:29:33] [33m[warning][0m user_login.go:45 gvd_server/api/user_api.UserApi.UserLoginView 用户密码错误admin123
+[2024-01-11 21:29:33] [33m[warning][0m user_login.go:45 gvd_server/api/user_api.UserApi.UserLoginView 用户密码错误admin123
+[2024-01-11 21:29:34] [33m[warning][0m user_login.go:45 gvd_server/api/user_api.UserApi.UserLoginView 用户密码错误admin123
+[2024-01-11 21:29:34] [33m[warning][0m user_login.go:45 gvd_server/api/user_api.UserApi.UserLoginView 用户密码错误admin123
+[2024-01-11 21:29:35] [33m[warning][0m user_login.go:45 gvd_server/api/user_api.UserApi.UserLoginView 用户密码错误admin123
+[2024-01-11 21:32:33] [33m[warning][0m user_login.go:45 gvd_server/api/user_api.UserApi.UserLoginView 用户密码错误admin123
+[2024-01-11 21:32:34] [33m[warning][0m user_login.go:45 gvd_server/api/user_api.UserApi.UserLoginView 用户密码错误admin123
+[2024-01-11 21:32:44] [33m[warning][0m user_login.go:45 gvd_server/api/user_api.UserApi.UserLoginView 用户密码错误admin123
+[2024-01-11 21:32:45] [33m[warning][0m user_login.go:45 gvd_server/api/user_api.UserApi.UserLoginView 用户密码错误admin123
+[2024-01-11 21:33:02] [33m[warning][0m user_login.go:45 gvd_server/api/user_api.UserApi.UserLoginView 用户密码错误admin123
+[2024-01-11 21:33:09] [33m[warning][0m user_login.go:45 gvd_server/api/user_api.UserApi.UserLoginView 用户密码错误admin123
+[2024-01-11 21:33:09] [33m[warning][0m user_login.go:45 gvd_server/api/user_api.UserApi.UserLoginView 用户密码错误admin123
+[2024-01-11 21:33:24] [33m[warning][0m user_login.go:45 gvd_server/api/user_api.UserApi.UserLoginView 用户密码错误admin123

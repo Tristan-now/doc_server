@@ -15,6 +15,7 @@ import (
 // @Summary 删除用户
 // @Description 删除用户
 // @Param token header string true "token"
+// @Param IDList []int true "idList"
 // @Router /api/users [delete]
 // @Produce json
 // @Success 200 {object} res.Response{}
