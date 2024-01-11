@@ -17,6 +17,7 @@ func Md5(byteData []byte) string {
 
 // FileMd5 计算上传文件的md5值
 func FileMd5(file multipart.File) string {
+
 	hash := md5.New()
 	// 这里用到了copy方法，千万不要直接读取原file对象
 	io.Copy(hash, file)
