@@ -54,6 +54,35 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/images": {
+            "delete": {
+                "description": "删除图片",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "图片管理"
+                ],
+                "summary": "删除图片",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "token",
+                        "name": "token",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/res.Response"
+                        }
+                    }
+                }
+            }
+        },
         "/api/login": {
             "post": {
                 "description": "用户登录",
@@ -109,6 +138,76 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {
                             "$ref": "#/definitions/res.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/roles": {
+            "post": {
+                "description": "创建角色",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "角色管理"
+                ],
+                "summary": "创建角色",
+                "parameters": [
+                    {
+                        "description": "参数",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/role_api.RoleCreateRequest"
+                        }
+                    },
+                    {
+                        "type": "string",
+                        "description": "token",
+                        "name": "token",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/res.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/site": {
+            "get": {
+                "description": "站点配置查询",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "站点配置"
+                ],
+                "summary": "站点配置查询",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/res.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/config.Site"
+                                        }
+                                    }
+                                }
+                            ]
                         }
                     }
                 }
@@ -267,6 +366,18 @@ const docTemplate = `{
                         "name": "token",
                         "in": "header",
                         "required": true
+                    },
+                    {
+                        "description": "idList",
+                        "name": "IDList",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
                     }
                 ],
                 "responses": {
@@ -396,6 +507,39 @@ const docTemplate = `{
         }
     },
     "definitions": {
+        "config.Site": {
+            "type": "object",
+            "properties": {
+                "abstract": {
+                    "description": "简介",
+                    "type": "string"
+                },
+                "content": {
+                    "description": "内容",
+                    "type": "string"
+                },
+                "footer": {
+                    "description": "尾部信息",
+                    "type": "string"
+                },
+                "href": {
+                    "description": "点击go的跳转链接",
+                    "type": "string"
+                },
+                "icon": {
+                    "description": "首页的图标",
+                    "type": "string"
+                },
+                "iconHref": {
+                    "description": "图标链接",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "网站名称",
+                    "type": "string"
+                }
+            }
+        },
         "models.RoleModel": {
             "type": "object",
             "properties": {
@@ -522,6 +666,25 @@ const docTemplate = `{
                 "data": {},
                 "msg": {
                     "type": "string"
+                }
+            }
+        },
+        "role_api.RoleCreateRequest": {
+            "type": "object",
+            "required": [
+                "Title"
+            ],
+            "properties": {
+                "ID": {
+                    "type": "integer"
+                },
+                "Pwd": {
+                    "type": "string"
+                },
+                "Title": {
+                    "type": "string",
+                    "maxLength": 16,
+                    "minLength": 2
                 }
             }
         },

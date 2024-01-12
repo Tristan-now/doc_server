@@ -1,5 +1,29 @@
 basePath: /
 definitions:
+  config.Site:
+    properties:
+      abstract:
+        description: 简介
+        type: string
+      content:
+        description: 内容
+        type: string
+      footer:
+        description: 尾部信息
+        type: string
+      href:
+        description: 点击go的跳转链接
+        type: string
+      icon:
+        description: 首页的图标
+        type: string
+      iconHref:
+        description: 图标链接
+        type: string
+      title:
+        description: 网站名称
+        type: string
+    type: object
   models.RoleModel:
     properties:
       createdAt:
@@ -90,6 +114,19 @@ definitions:
       data: {}
       msg:
         type: string
+    type: object
+  role_api.RoleCreateRequest:
+    properties:
+      ID:
+        type: integer
+      Pwd:
+        type: string
+      Title:
+        maxLength: 16
+        minLength: 2
+        type: string
+    required:
+    - Title
     type: object
   user_api.UserCreateRequest:
     properties:
@@ -227,6 +264,25 @@ paths:
       summary: 上传图片
       tags:
       - 图片管理
+  /api/images:
+    delete:
+      description: 删除图片
+      parameters:
+      - description: token
+        in: header
+        name: token
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/res.Response'
+      summary: 删除图片
+      tags:
+      - 图片管理
   /api/login:
     post:
       description: 用户登录
@@ -266,6 +322,49 @@ paths:
       summary: 用户注销
       tags:
       - 用户管理
+  /api/roles:
+    post:
+      description: 创建角色
+      parameters:
+      - description: 参数
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/role_api.RoleCreateRequest'
+      - description: token
+        in: header
+        name: token
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/res.Response'
+      summary: 创建角色
+      tags:
+      - 角色管理
+  /api/site:
+    get:
+      description: 站点配置查询
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/res.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/config.Site'
+              type: object
+      summary: 站点配置查询
+      tags:
+      - 站点配置
   /api/users:
     delete:
       description: 删除用户
@@ -275,6 +374,14 @@ paths:
         name: token
         required: true
         type: string
+      - description: idList
+        in: body
+        name: IDList
+        required: true
+        schema:
+          items:
+            type: integer
+          type: array
       produces:
       - application/json
       responses:
