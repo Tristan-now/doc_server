@@ -33,7 +33,7 @@ func Routers() *gin.Engine {
 	//routerGroup.LogRouter()
 	routerGroup.SiteRouter()
 	routerGroup.RoleRouter()
-	//routerGroup.DocRouter()
+	routerGroup.DocRouter()
 	//routerGroup.RoleDocRouter()
 	//routerGroup.DataRouter()
 	//routerGroup.UserCenterRouter()

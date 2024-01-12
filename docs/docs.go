@@ -15,6 +15,44 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/api/docs": {
+            "post": {
+                "description": "创建文档，创建成功之后，data=文档id",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "文档管理"
+                ],
+                "summary": "创建文档",
+                "parameters": [
+                    {
+                        "description": "参数",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/doc_api.DocCreateRequest"
+                        }
+                    },
+                    {
+                        "type": "string",
+                        "description": "token",
+                        "name": "token",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/res.Response"
+                        }
+                    }
+                }
+            }
+        },
         "/api/image": {
             "post": {
                 "description": "上传图片",
@@ -144,6 +182,101 @@ const docTemplate = `{
             }
         },
         "/api/roles": {
+            "get": {
+                "description": "角色列表",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "角色管理"
+                ],
+                "summary": "角色列表",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "key",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "limit",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "sort",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "token",
+                        "name": "token",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/res.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/res.ListResponse-role_api_RoleListResponse"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "更新角色",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "角色管理"
+                ],
+                "summary": "更新角色",
+                "parameters": [
+                    {
+                        "description": "参数",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/role_api.RoleCreateRequest"
+                        }
+                    },
+                    {
+                        "type": "string",
+                        "description": "token",
+                        "name": "token",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/res.Response"
+                        }
+                    }
+                }
+            },
             "post": {
                 "description": "创建角色",
                 "produces": [
@@ -540,6 +673,24 @@ const docTemplate = `{
                 }
             }
         },
+        "doc_api.DocCreateRequest": {
+            "type": "object",
+            "required": [
+                "content",
+                "title"
+            ],
+            "properties": {
+                "content": {
+                    "type": "string"
+                },
+                "parentID": {
+                    "type": "integer"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        },
         "models.RoleModel": {
             "type": "object",
             "properties": {
@@ -657,6 +808,20 @@ const docTemplate = `{
                 }
             }
         },
+        "res.ListResponse-role_api_RoleListResponse": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "integer"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/role_api.RoleListResponse"
+                    }
+                }
+            }
+        },
         "res.Response": {
             "type": "object",
             "properties": {
@@ -685,6 +850,43 @@ const docTemplate = `{
                     "type": "string",
                     "maxLength": 16,
                     "minLength": 2
+                }
+            }
+        },
+        "role_api.RoleListResponse": {
+            "type": "object",
+            "properties": {
+                "DocCount": {
+                    "description": "角色拥有的文档数",
+                    "type": "integer"
+                },
+                "UserCount": {
+                    "description": "角色下的用户数",
+                    "type": "integer"
+                },
+                "createdAt": {
+                    "description": "添加时间",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "主键id",
+                    "type": "integer"
+                },
+                "isSystem": {
+                    "description": "是否是系统角色",
+                    "type": "boolean"
+                },
+                "pwd": {
+                    "description": "角色密码",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "角色的名称",
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "description": "更新时间",
+                    "type": "string"
                 }
             }
         },
