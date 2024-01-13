@@ -311,6 +311,21 @@ paths:
       summary: 创建文档
       tags:
       - 文档管理
+  /api/docs/{id}:
+    get:
+      description: 文档内容
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses: {}
+      summary: 文档内容
+      tags:
+      - 文档管理
   /api/image:
     post:
       consumes:

@@ -5,6 +5,7 @@ import (
 	"gvd_server/global"
 	"gvd_server/models"
 	"gvd_server/service/common/res"
+	"gvd_server/service/redis_service"
 )
 
 type DocInfoResponse struct {
@@ -27,13 +28,16 @@ func (DocApi) DocInfoView(c *gin.Context) {
 		return
 	}
 
+	docDigg := redis_service.NewDocDigg().GetById(doc.ID)
+	docLook := redis_service.NewDocLook().GetById(doc.ID)
+
 	var docInfo = DocInfoResponse{
 		Model:         doc.Model,
 		Title:         doc.Title,
 		ContentLength: len(doc.Content),
-		//DiggCount:     docDigg + doc.DiggCount,
-		//LookCount:     docLook + doc.LookCount,
-		Key: doc.Key,
+		DiggCount:     docDigg + doc.DiggCount,
+		LookCount:     docLook + doc.LookCount,
+		Key:           doc.Key,
 	}
 	res.OKWithData(docInfo, c)
 }

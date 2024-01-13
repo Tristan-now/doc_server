@@ -10,4 +10,5 @@ func (router RouterGroup) DocRouter() {
 	r := router.Group("docs")
 	r.POST("", middleware.JwtAdmin(), app.DocCreateView)
 	r.GET("info/:id", middleware.JwtAdmin(), app.DocInfoView)
+	r.GET(":id", app.DocContentView)
 }

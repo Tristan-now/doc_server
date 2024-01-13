@@ -53,6 +53,28 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/docs/{id}": {
+            "get": {
+                "description": "文档内容",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "文档管理"
+                ],
+                "summary": "文档内容",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
         "/api/image": {
             "post": {
                 "description": "上传图片",
