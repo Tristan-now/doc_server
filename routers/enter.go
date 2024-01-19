@@ -34,8 +34,8 @@ func Routers() *gin.Engine {
 	routerGroup.SiteRouter()
 	routerGroup.RoleRouter()
 	routerGroup.DocRouter()
-	//routerGroup.RoleDocRouter()
-	//routerGroup.DataRouter()
-	//routerGroup.UserCenterRouter()
+	routerGroup.RoleDocRouter()
+	routerGroup.DataRouter()
+	routerGroup.UserCenterRouter()
 	return router
 }

@@ -6,6 +6,7 @@ import (
 	"gvd_server/global"
 	"gvd_server/models"
 	"gvd_server/service/common/res"
+	"gvd_server/service/full_search_service"
 	"strings"
 )
 
@@ -57,6 +58,7 @@ func (DocApi) DocCreateView(c *gin.Context) {
 		res.FailWithMsg("文档保存失败", c)
 		return
 	}
+	go full_search_service.FullSearchCreate(docModel)
 
 	var docList []models.DocModel
 	models.FindAllParentDocList(docModel, &docList)

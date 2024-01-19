@@ -15,6 +15,7 @@ func FullSearchCreate(doc models.DocModel) {
 	}
 	searchDataList := MarkdownParse(doc.ID, doc.Title, doc.Content)
 	bulk := global.ESClient.Bulk().Index(models.FullTextModel{}.Index()).Refresh("true")
+
 	for _, model := range searchDataList {
 		req := elastic.NewBulkCreateRequest().Doc(models.FullTextModel{
 			DocID: doc.ID,
@@ -24,6 +25,7 @@ func FullSearchCreate(doc models.DocModel) {
 		})
 		bulk.Add(req)
 	}
+
 	res, err := bulk.Do(context.Background())
 	if err != nil {
 		logrus.Errorf("%#v 数据添加失败 err:%s", doc, err.Error())
